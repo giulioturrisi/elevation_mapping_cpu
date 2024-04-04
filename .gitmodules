@@ -10,3 +10,6 @@
 [submodule "grid_map"]
 	path = grid_map
 	url = https://github.com/ANYbotics/grid_map.git
+[submodule "message_logger"]
+	path = message_logger
+	url = https://github.com/ANYbotics/message_logger.git
