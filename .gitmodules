@@ -1,0 +1,9 @@
+[submodule "elevation_mapping"]
+	path = elevation_mapping
+	url = https://github.com/ANYbotics/elevation_mapping.git
+[submodule "kindr"]
+	path = kindr
+	url = git@github.com:ANYbotics/kindr.git
+[submodule "kindr_ros"]
+	path = kindr_ros
+	url = https://github.com/ANYbotics/kindr_ros.git
