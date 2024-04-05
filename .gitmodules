@@ -7,12 +7,6 @@
 [submodule "kindr_ros"]
 	path = kindr_ros
 	url = https://github.com/ANYbotics/kindr_ros.git
-[submodule "grid_map"]
-	path = grid_map
-	url = https://github.com/ANYbotics/grid_map.git
 [submodule "message_logger"]
 	path = message_logger
 	url = https://github.com/ANYbotics/message_logger.git
-[submodule "perception_pcl"]
-	path = perception_pcl
-	url = https://github.com/ros-perception/perception_pcl
