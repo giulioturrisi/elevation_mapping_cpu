@@ -33,8 +33,9 @@ RUN apt upgrade -y
 SHELL ["/bin/bash", "-c"]
 RUN echo 'export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;37m\]\u\[\033[00m\]@\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] "'  >> /root/.bashrc
 
-RUN echo 'alias rviz="rosrun rviz rviz"' >> /root/.bashrc
-RUN echo 'alias plotjuggler="rosrun plotjuggler plotjuggler"' >> /root/.bashrc
+RUN echo 'alias run_rviz="rosrun rviz rviz"' >> /root/.bashrc
+RUN echo 'alias run_plotjuggler="rosrun plotjuggler plotjuggler"' >> /root/.bashrc
+RUN echo 'alias run_elevation_mapping_cpu="cd /home/devel && source setup.bash && roslaunch elevation_mapping_demos aliengo_sim.launch"' >> /root/.bashrc
 
 
 # Set the working directory and source the bashrc file
