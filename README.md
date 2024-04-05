@@ -1,6 +1,6 @@
 # elevation_mapping_cpu
 
-Simple package that contain all the dependencies for installing [elevation_mapping](https://github.com/ANYbotics/elevation_mapping) with mamba.
+Simple package that contain all the dependencies for installing [elevation_mapping](https://github.com/ANYbotics/elevation_mapping) plus a docker image to use it.
 
 
 ## Installation
