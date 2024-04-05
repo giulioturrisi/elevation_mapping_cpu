@@ -17,7 +17,7 @@ Simple package that contain all the dependencies for installing [elevation_mappi
 
     `git submodule update --init --recursive`
     
-4. build one of the dockerfile in the folder [docker](https://github.com/giulioturrisi/elevation_mapping_cpu/tree/main/installation/docker)
+4. build one of the dockerfile in the folder [installation/docker](https://github.com/giulioturrisi/elevation_mapping_cpu/tree/main/installation/docker)
 
     `docker build -t elevation_mapping_cpu_image .`
 
