@@ -1,0 +1,44 @@
+FROM osrf/ros:melodic-desktop-bionic
+
+# install ros packages
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ros-melodic-desktop-full=1.4.1-0* \
+    && rm -rf /var/lib/apt/lists/*
+
+ENV DEBIAN_FRONTEND=noninteractive
+# nvidia-container-runtime
+ENV NVIDIA_VISIBLE_DEVICES \
+    ${NVIDIA_VISIBLE_DEVICES:-all}
+ENV NVIDIA_DRIVER_CAPABILITIES \
+    ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
+
+
+# Install additional ROS packages
+RUN apt-get update && apt-get install -y ros-melodic-plotjuggler-ros
+RUN apt-get update && apt-get install -y ros-melodic-grid-map
+RUN apt-get update && apt-get install -y ros-melodic-navigation
+RUN apt-get update && apt-get install -y ros-melodic-pcl-ros
+RUN apt-get update && apt-get install -y ros-melodic-octomap-ros
+
+# Install tkinter, pip, and gedit
+RUN apt-get update && apt-get install -y python3-tk
+RUN apt-get update && apt-get install -y python3-pip
+RUN apt-get update && apt-get install -y gedit
+
+
+
+
+
+# Set the shell to bash and configure the shell prompt and aliases
+SHELL ["/bin/bash", "-c"]
+RUN echo 'export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;37m\]\u\[\033[00m\]@\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] "'  >> /root/.bashrc
+
+
+# Add some usefull aliases
+RUN echo 'alias rviz="rosrun rviz rviz"' >> /root/.bashrc
+RUN echo 'alias plotjuggler="rosrun plotjuggler plotjuggler"' >> /root/.bashrc
+
+
+# Set the working directory and source the bashrc file
+WORKDIR /home
+RUN source /root/.bashrc
