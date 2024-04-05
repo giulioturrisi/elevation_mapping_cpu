@@ -7,49 +7,41 @@ Simple package that contain all the dependencies for installing [elevation_mappi
 
 1. create a **new** ros workspace 
    ```sh
-   mkdir -p ~/dls1_noetic/src
+   mkdir -p ~/dls1_melodic/src
    ``` 
 
 2. clone this repo inside /src  
 
-3. install [miniforge](https://github.com/conda-forge/miniforge/releases) (x86_64)
 
-4. create an environment using the file in the folder [installation](https://github.com/iit-DLSLab/Quadruped-PyMPC/tree/main/installation):
-
-    `conda env create -f mamba_environment.yml`
-
-
-5. clone the other submodules:
+3. clone the other submodules:
 
     `git submodule update --init --recursive`
     
-6. activate the conda environment
+4. build one of the dockerfile in the folder [docker](https://github.com/giulioturrisi/elevation_mapping_cpu/tree/main/installation/docker)
 
-    `conda activate elevation_mapping_cpu_env`
+    `docker build -t elevation_mapping_cpu_image .`
 
 
-7. run:
+5. in your bashrc, put
     ```sh
-    # this adds the conda-forge channel to the new created environment configuration 
-    conda config --env --add channels conda-forge
-    # and the robostack channel
-    conda config --env --add channels robostack-staging
-    # remove the defaults channel just in case, this might return an error if it is not in the list which is ok
-    conda config --env --remove channels defaults
-    # install ros noetic
-    mamba install ros-noetic-desktop
-    mamba install ros-noetic-navigation
-    mamba install ros-noetic-pcl-ros
-    mamba install ros-noetic-octomap-ros
+    alias elevation_mapping_cpu_docker='
+        if [ ! "$(docker ps -a -q -f name=elevation_mapping_cpu_container)" ]; then
+            xhost + && docker run -it --rm -v /your_path_to/dls1_melodic/:/home/ -v /tmp/.X11-unix:/tmp/.X11-unix --device=/dev/input/ -e DISPLAY=$DISPLAY -e WAYLAND_DISPLAY=$WAYLAND_DISPLAY -e QT_X11_NO_MITSHM=1 --gpus all --net host --name elevation_mapping_cpu_container elevation_mapping_cpu_image; \
+        else
+            docker exec -it elevation_mapping_cpu_container bash; \
+            fi'
     ```
-
-8. see this [commit](https://github.com/ANYbotics/grid_map/commit/8a95e563ee3c5e9673217c103c5165aa6fb73275) to modify something inside grid_map
-
+where in **/your_path_to/dls1_melodic/** you can put the true path of the folder you created in step 1.
 
 
-9. compile with
+6. activate the docker container 
+    `elevation_mapping_cpu_docker`
+
+
+7. compile it and run it!
     ```sh
     catkin_make
+    run_elevation_mapping_cpu
     ```
 
 
