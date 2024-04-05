@@ -34,7 +34,8 @@ Simple package that contain all the dependencies for installing [elevation_mappi
 where in **/your_path_to/dls1_melodic/** you can put the true path of the folder you created in step 1.
 
 
-6. activate the docker container 
+6. activate the docker container: 
+
     `elevation_mapping_cpu_docker`
 
 
