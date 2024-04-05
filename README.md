@@ -7,7 +7,7 @@ Simple package that contain all the dependencies for installing [elevation_mappi
 
 1. create a **new** ros workspace 
    ```sh
-   mkdir -p ~/dls1_melodic/src
+   mkdir -p ~/dls1_noetic/src
    ``` 
 
 2. clone this repo inside **/src**  
@@ -26,12 +26,12 @@ Simple package that contain all the dependencies for installing [elevation_mappi
     ```sh
     alias elevation_mapping_cpu_docker='
         if [ ! "$(docker ps -a -q -f name=elevation_mapping_cpu_container)" ]; then
-            xhost + && docker run -it --rm -v /your_path_to/dls1_melodic/:/home/ -v /tmp/.X11-unix:/tmp/.X11-unix --device=/dev/input/ -e DISPLAY=$DISPLAY -e WAYLAND_DISPLAY=$WAYLAND_DISPLAY -e QT_X11_NO_MITSHM=1 --gpus all --net host --name elevation_mapping_cpu_container elevation_mapping_cpu_image; \
+            xhost + && docker run -it --rm -v /your_path_to/dls1_noetic/:/home/ -v /tmp/.X11-unix:/tmp/.X11-unix --device=/dev/input/ -e DISPLAY=$DISPLAY -e WAYLAND_DISPLAY=$WAYLAND_DISPLAY -e QT_X11_NO_MITSHM=1 --gpus all --net host --name elevation_mapping_cpu_container elevation_mapping_cpu_image; \
         else
             docker exec -it elevation_mapping_cpu_container bash; \
         fi'
     ```
-where in **/your_path_to/dls1_melodic/** you can put the true path of the folder you created in step 1.
+where in **/your_path_to/dls1_noetic/** you can put the true path of the folder you created in step 1.
 
 
 6. activate the docker container: 

@@ -1,8 +1,8 @@
-FROM osrf/ros:melodic-desktop-bionic
+FROM osrf/ros:noetic-desktop-focal
 
 # install ros packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    ros-melodic-desktop-full=1.4.1-0* \
+    ros-noetic-desktop-full=1.5.0-1* \
     && rm -rf /var/lib/apt/lists/*
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -14,11 +14,11 @@ ENV NVIDIA_DRIVER_CAPABILITIES \
 
 
 # Install additional ROS packages
-RUN apt-get update && apt-get install -y ros-melodic-plotjuggler-ros
-RUN apt-get update && apt-get install -y ros-melodic-grid-map
-RUN apt-get update && apt-get install -y ros-melodic-navigation
-RUN apt-get update && apt-get install -y ros-melodic-pcl-ros
-RUN apt-get update && apt-get install -y ros-melodic-octomap-ros
+RUN apt-get update && apt-get install -y ros-noetic-plotjuggler-ros
+RUN apt-get update && apt-get install -y ros-noetic-grid-map
+RUN apt-get update && apt-get install -y ros-noetic-navigation
+RUN apt-get update && apt-get install -y ros-noetic-pcl-ros
+RUN apt-get update && apt-get install -y ros-noetic-octomap-ros
 
 # Install tkinter, pip, and gedit
 RUN apt-get update && apt-get install -y python3-tk
