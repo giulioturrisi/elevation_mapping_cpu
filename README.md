@@ -10,7 +10,7 @@ Simple package that contain all the dependencies for installing [elevation_mappi
    mkdir -p ~/dls1_melodic/src
    ``` 
 
-2. clone this repo inside /src  
+2. clone this repo inside **/src**  
 
 
 3. clone the other submodules:
