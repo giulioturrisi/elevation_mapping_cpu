@@ -7,7 +7,7 @@ Simple package that contain all the dependencies for installing [elevation_mappi
 
 1. create a **new** ros workspace 
    ```sh
-   mkdir -p ~/dls1_noetic/src
+   mkdir -p ~/dls1_external_mapping/src
    ``` 
 
 2. clone this repo inside **/src**  
