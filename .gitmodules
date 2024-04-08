@@ -7,3 +7,6 @@
 [submodule "message_logger"]
 	path = message_logger
 	url = https://github.com/ANYbotics/message_logger.git
+[submodule "kindr"]
+	path = kindr
+	url = https://github.com/ANYbotics/kindr.git
