@@ -1,4 +1,5 @@
 point_cloud_topic: "/realsense/front/camera/depth/points"
+#point_cloud_topic: "/realsense/front/camera/depth/color/points"
 map_frame_id: "world"
 sensor_frame_id: "realsense/front/camera_depth_optical_frame"
 robot_base_frame_id: "base_link"
